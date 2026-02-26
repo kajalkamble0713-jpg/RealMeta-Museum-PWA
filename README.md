@@ -91,9 +91,8 @@ npm or yarn
 
 (Optional) Docker & Docker Compose
 
-## 🚀 Installation & Usage 
 
-## Clone repository
+# Clone repository
 git clone <repository-url>
 cd "RealMeta Museum PWA"
 
@@ -114,8 +113,8 @@ cp .env.example .env
 # Frontend
 cd ..
 cp .env.example .env
-# Edit .env with API URL
-# Start MongoDB
+ #Edit .env with API URL
+ Start MongoDB
 docker run -d -p 27017:27017 --name mongo mongo:7.0
 
 # Start backend server
