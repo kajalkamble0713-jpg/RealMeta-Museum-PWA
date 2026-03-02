@@ -1,238 +1,158 @@
 # RealMeta Museum PWA
 
-A complete, production-ready Progressive Web App for museum artwork recognition, AI-powered guides, interactive maps, and visitor analytics
+A production-focused Progressive Web App for museum experiences, including artwork recognition, AI-powered guides, interactive navigation, and visitor analytics.
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/kajalkamble0713-jpg/RealMeta-Museum-PWA)
 ![GitHub contributors](https://img.shields.io/github/contributors/kajalkamble0713-jpg/RealMeta-Museum-PWA)
 ![GitHub license](https://img.shields.io/github/license/kajalkamble0713-jpg/RealMeta-Museum-PWA)
 ![GitHub last commit](https://img.shields.io/github/last-commit/kajalkamble0713-jpg/RealMeta-Museum-PWA)
 
+## Features
 
-## 🚀 Features
-Frontend (React + TypeScript + Vite)
-📱 PWA Support – Offline-capable, installable web app
-🎨 Modern UI – Built with Radix UI components and Tailwind CSS
-📷 Camera Scanner – Artwork recognition using device camera
-🤖 AI Chatbot – Context-aware Q&A about artworks
-🗺️ Interactive Map – Museum navigation with artwork locations
-🎧 Audio Narration – Text-to-speech artwork descriptions
-🌐 AR View – Augmented reality artwork preview (planned)
-📊 Admin Dashboard – Analytics and content management
-🎭 No Login Required – Seamless visitor experience
+### Frontend (React + TypeScript + Vite)
+- Installable PWA with offline-capable behavior
+- Camera-based artwork scanner
+- AI chatbot for artwork Q&A
+- Interactive museum map and navigation
+- Audio narration for exhibits
+- Admin dashboard UI
+- No-login visitor flow
 
-Backend (Node.js + Express + TypeScript) :
-🔐 RESTful API – Complete API with authentication
-🗄️ MongoDB Database – Scalable document storage
-🧠 AI Integration – OpenAI GPT-4 for chatbot and narration
-👁️ Image Recognition – Artwork identification from photos
-📈 Analytics Engine – Visitor behavior tracking
-🔒 Security – Helmet, CORS, rate limiting
-📝 Logging – Winston logger with file rotation
-🐳 Docker Ready – Containerized deployment
+### Backend (Node.js + Express)
+- REST API for artworks, chat, map, and analytics
+- Image processing pipeline for artwork identification
+- AI integrations (OpenAI / Gemini-ready setup)
+- Caching and request rate limiting
+- Security middleware (Helmet, CORS)
+- Docker-ready service setup
 
-## 📦 Project Structure
+## Tech Stack
+
+- Frontend: React, TypeScript, Vite, Tailwind CSS, Radix UI
+- Backend: Node.js, Express
+- Integrations: OpenAI, Google Generative AI, Firebase Admin
+- DevOps: Docker, Docker Compose, Nginx
+
+## Project Structure
+
+```text
 RealMeta Museum PWA/
-├── src/                          # Frontend source code
-│   ├── components/              
-│   │   ├── ui/                  # Reusable UI components
-│   │   ├── LandingPage.tsx
-│   │   ├── CameraScanner.tsx
-│   │   ├── ArtworkPage.tsx
-│   │   ├── ChatbotUI.tsx
-│   │   ├── MapGuide.tsx
-│   │   └── AdminDashboard.tsx
-│   ├── lib/                     
-│   │   ├── types.ts
-│   │   ├── apiService.ts        
-│   │   └── mockData.ts
-│   ├── App.tsx                  
-│   └── main.tsx                 
-├── backend/                      
-│   ├── src/
-│   │   ├── server.ts            
-│   │   ├── config/              
-│   │   ├── models/              
-│   │   ├── routes/              
-│   │   ├── services/            
-│   │   ├── middleware/          
-│   │   └── utils/               
-│   ├── package.json
-│   ├── tsconfig.json
-│   └── Dockerfile
-├── docker-compose.yml            
-├── nginx.conf                    
-├── package.json                  
-├── vite.config.ts                
-└── DEPLOYMENT_GUIDE.md 
+|-- src/                  # Frontend source
+|-- public/               # Static assets
+|-- backend/              # API service
+|   |-- src/
+|   |-- .env.example
+|   `-- package.json
+|-- scripts/              # Utility scripts (encoding checks, etc.)
+|-- docker-compose.yml
+|-- nginx.conf
+|-- README_FULL.md
+`-- DEPLOYMENT_GUIDE.md
+```
 
-## Backend :
-Node.js 18+ – Runtime environment
-Express – Web framework
-TypeScript – Type safety
-MongoDB – NoSQL database
-Mongoose – ODM for MongoDB
-OpenAI API – AI/ML capabilities
-TensorFlow.js – Machine learning
-Sharp – Image processing
-Winston – Logging
-JWT – Authentication
-DevOps
-Docker – Containerization
-Docker Compose – Multi-container orchestration
-Nginx – Web server and reverse proxy
-PM2 – Process management
-GitHub Actions – CI/CD pipeline
+## Getting Started
 
-## 🚦 Getting Started
-Prerequisites
-Node.js 18+
-MongoDB 5.0+
-npm or yarn
+### Prerequisites
+- Node.js 18+
+- npm
+- Docker (optional, for containerized setup)
 
-(Optional) Docker & Docker Compose
+### 1) Clone and enter the app
 
-
-# Clone repository
+```bash
 git clone <repository-url>
 cd "RealMeta Museum PWA"
+```
 
-# Install frontend dependencies
-npm install
+### 2) Install dependencies
 
-# Install backend dependencies
-cd backend
+```bash
+# Frontend
 npm install
-cd ..
-# Set up environment variables
 
 # Backend
 cd backend
-cp .env.example .env
-# Edit .env with your settings
-
-# Frontend
+npm install
 cd ..
-cp .env.example .env
- #Edit .env with API URL
- Start MongoDB
-docker run -d -p 27017:27017 --name mongo mongo:7.0
+```
 
-# Start backend server
+### 3) Configure environment files
+
+```bash
+# Frontend env
+cp .env.example .env
+
+# Backend env
+cp backend/.env.example backend/.env
+```
+
+Update both `.env` files with your keys and endpoints.
+
+### 4) Run in development
+
+Open two terminals:
+
+```bash
+# Terminal 1: backend
 cd backend
 npm run dev
-# Server runs on http://localhost:5000
+```
 
-# Start frontend dev server
+```bash
+# Terminal 2: frontend
 npm run dev
-# App runs on http://localhost:5173
-Docker Deployment
-# Configure environment
-cp .env.example .env
-# Edit .env for production
+```
 
-# Build and start services
+- Frontend: `http://localhost:5173`
+- Backend: `http://localhost:5000`
+
+## Docker Deployment
+
+```bash
 docker-compose up -d --build
-
-# View logs
 docker-compose logs -f
+```
 
-# Access app at http://localhost
-## 📚 API Endpoints
-Base URL
-http://localhost:5000/api
-Key Endpoints
+Default app entrypoint: `http://localhost`
 
-## Artworks:
-GET /artworks – List artworks
-GET /artworks/:id – Artwork by ID
-POST /artworks – Create artwork (admin)
-PUT /artworks/:id – Update artwork (admin)
-DELETE /artworks/:id – Delete artwork (admin)
-Recognition
-POST /recognition/identify – Identify artwork from image
-GET /recognition/ai-info/:artworkId – AI-generated info
-GET /recognition/narration/:artworkId – Audio narration
-Chat
-POST /chat/message – Send message
-GET /chat/conversation/:sessionId/:artworkId – Conversation history
-Analytics
-POST /analytics/track – Track event
-GET /analytics/artwork/:artworkId – Artwork analytics
-Admin
-POST /admin/login – Admin login
-GET /admin/summary – Analytics summary (auth)
-GET /admin/dashboard – Dashboard data (auth)
-Map
-GET /map – Get active museum map
+## API Overview
 
-## 🔐 Security
-Helmet.js for secure headers
-CORS configuration
-Rate limiting
-JWT authentication for admin
-Input validation
-File upload restrictions
+Base URL: `http://localhost:5000/api`
 
-## 📈 Performance
-Lazy loading components
-Image optimization
-API response caching
-Database indexing
-Gzip compression
-CDN-ready assets
+- Artworks: list, get by ID, create/update/delete
+- Recognition: image identify, AI info, narration
+- Chat: message + conversation history
+- Analytics: event tracking + summaries
+- Admin: login + dashboard endpoints
+- Map: active museum map data
 
-## 🧪 Testing
-# Backend tests
-cd backend
-npm test
+## Useful Scripts
 
-# Frontend tests
-npm test
+### Frontend
+- `npm run dev`
+- `npm run build`
+- `npm run lint:encoding`
+- `npm run fix:encoding`
 
-## 🎯 Roadmap
- AR artwork viewing with WebXR
- Multi-language support
- Voice commands
- Social sharing features
- Visitor tours and paths
- Admin CMS interface
- Mobile app (React Native)
- Advanced analytics dashboard
+### Backend
+- `npm run dev`
+- `npm start`
 
----
+## Documentation
 
-## 🔥 Features
+- `README_FULL.md` for full details
+- `DEPLOYMENT_GUIDE.md` for production deployment
+- `QUICKSTART.md` for quick local setup
+- `OPENROUTER_SETUP.md` and `SETUP_AI_VISION.md` for AI configuration
 
-- Augmented Reality (AR) integration for artworks
-- Interactive museum maps and guides
-- Audio and video guides for exhibits
-- Admin dashboard for museum management
-- Progressive Web App with offline support
+## Contributing
 
----
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push the branch
+5. Open a pull request
 
-## 💻 Tech Stack
+## License
 
-- **Frontend:** React, TypeScript, Tailwind CSS, Vite  
-- **Backend:** Node.js, Express, MongoDB  
-- **Deployment:** Docker, Nginx  
-
----
-
-## 🤝 Contributing
-Fork the repository
-Create a feature branch
-Commit your changes
-Push to branch
-Open a Pull Request
-
-## 📝 License
-This project is licensed under MIT License.
-
-## 🆘 Support
-Read DEPLOYMENT_GUIDE.md
-Check logs: docker-compose logs
-Open a GitHub issue
-Made with ❤️ for museums and art lovers everywhere
-
-
+This project is licensed under the MIT License.
